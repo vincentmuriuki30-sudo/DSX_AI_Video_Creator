@@ -7,13 +7,13 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.dsx.aivideo.R
 
 class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Check if user is already logged in
         val prefs = getSharedPreferences("dsx_user_session", Context.MODE_PRIVATE)
         if (prefs.getBoolean("is_logged_in", false)) {
             navigateToMain()
@@ -27,21 +27,18 @@ class LoginActivity : AppCompatActivity() {
         val btnEmail = findViewById<Button>(R.id.btnLoginEmail)
         val etInput = findViewById<EditText>(R.id.etAuthInput)
 
-        // Google Authentication trigger
         btnGoogle.setOnClickListener {
             saveSession("Google User", "google_auth")
             Toast.makeText(this, "Signed in via Google!", Toast.LENGTH_SHORT).show()
             navigateToMain()
         }
 
-        // Facebook Authentication trigger
         btnFacebook.setOnClickListener {
             saveSession("Facebook User", "fb_auth")
             Toast.makeText(this, "Signed in via Facebook!", Toast.LENGTH_SHORT).show()
             navigateToMain()
         }
 
-        // Email / Phone Authentication trigger
         btnEmail.setOnClickListener {
             val identifier = etInput.text.toString().trim()
             if (identifier.isNotEmpty()) {
