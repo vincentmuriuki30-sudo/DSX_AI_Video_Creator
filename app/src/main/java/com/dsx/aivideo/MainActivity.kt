@@ -9,6 +9,7 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.VideoView
 import androidx.appcompat.app.AppCompatActivity
+import com.dsx.aivideo.R
 import okhttp3.Call
 import okhttp3.Callback
 import okhttp3.OkHttpClient
@@ -23,7 +24,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var etPrompt: EditText
     private lateinit var btnGenerate: Button
     private lateinit var tvStatus: TextView
-    private lateinit var tvUserHeader: TextView
     private lateinit var videoView: VideoView
     private val client = OkHttpClient()
 
@@ -36,7 +36,6 @@ class MainActivity : AppCompatActivity() {
         tvStatus = findViewById(R.id.tvStatus)
         videoView = findViewById(R.id.videoView)
 
-        // Read saved session
         val prefs = getSharedPreferences("dsx_user_session", Context.MODE_PRIVATE)
         val user = prefs.getString("account_name", "Creator")
         tvStatus.text = "Account: $user | Status: Ready"
@@ -72,7 +71,6 @@ class MainActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     val bytes = response.body?.bytes()
                     if (bytes != null) {
-                        // Save video project under user storage
                         val projectFile = File(filesDir, "project_${System.currentTimeMillis()}.mp4")
                         val fos = FileOutputStream(projectFile)
                         fos.write(bytes)
