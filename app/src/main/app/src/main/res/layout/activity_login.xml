@@ -29,7 +29,6 @@
             android:textSize="14sp"
             android:layout_marginBottom="36dp" />
 
-        <!-- Google One-Tap Sign In Button -->
         <Button
             android:id="@+id/btnGoogleAuth"
             android:layout_width="match_parent"
