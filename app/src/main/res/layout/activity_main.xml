@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0A0A0C"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DSX AI Video Creator"
+            android:textColor="#00E5FF"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Generate cinematic TikTok-ready clips"
+            android:textColor="#888888"
+            android:textSize="14sp"
+            android:layout_marginBottom="20dp" />
+
+        <EditText
+            android:id="@+id/etPrompt"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:background="#16161A"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#555555"
+            android:hint="Describe scene (e.g., A cybernetic car speeding through Nairobi streets at night, 8k resolution, cinematic lighting)..."
+            android:gravity="top|start"
+            android:padding="12dp"
+            android:textSize="14sp"
+            android:layout_marginBottom="16dp" />
+
+        <Button
+            android:id="@+id/btnGenerate"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:text="✨ GENERATE AI VIDEO"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:backgroundTint="#0088FF"
+            android:layout_marginBottom="20dp" />
+
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Status: Ready"
+            android:textColor="#00FF88"
+            android:textSize="14sp"
+            android:layout_marginBottom="16dp" />
+
+        <VideoView
+            android:id="@+id/videoView"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:layout_gravity="center"
+            android:visibility="gone" />
+
+    </LinearLayout>
+</ScrollView>
+
